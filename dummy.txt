@@ -1,7 +1,7 @@
-65c9bdf dummy commit for git reset 2
-2bbfad9 dummy commit for git reset 1
-6e9f048 all comit
-189eb76 commits.txt comit lets go
-1691e9a third comit lets go
-decefa4 commits.txt second comit
-4d5983d git simple comit message for class
+스파르타 코딩 클럽 git 강의 최고!
+라인 1
+라인 2
+라인 3
+라인 4
+라인 5
+라인 6
