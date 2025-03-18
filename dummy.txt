@@ -1,3 +1,4 @@
+65c9bdf dummy commit for git reset 2
 2bbfad9 dummy commit for git reset 1
 6e9f048 all comit
 189eb76 commits.txt comit lets go
