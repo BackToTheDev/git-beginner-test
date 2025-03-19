@@ -1,0 +1,142 @@
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ touch reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ vim reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git add reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git commit -m "first commit"
+[master 5102b83] first commit
+ 1 file changed, 2 insertions(+)
+ create mode 100644 reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ vim reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git add reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git commit -m "second commit"
+[master ad81bf9] second commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git reset --hard
+HEAD is now at ad81bf9 second commit
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git reset --hard ad81bf9c
+HEAD is now at ad81bf9 second commit
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git add .
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git commit -m "third commit"
+On branch master
+nothing to commit, working tree clean
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git reset --hard 5102b83a
+HEAD is now at 5102b83 first commit
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ vim reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git add .
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git commit -m "thrid commit"
+[master 387b7a4] thrid commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ vim reset_test.txt
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git add .
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git commit -m "fourth commit"
+[master 019c4c9] fourth commit
+ 1 file changed, 1 insertion(+)
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git revert 5102b83a
+CONFLICT (modify/delete): reset_test.txt deleted in parent of 5102b83 (first commit) and modified in HEAD.  Version HEAD of reset_test.txt left in tree.
+error: could not revert 5102b83... first commit
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git revert --continue".
+hint: You can instead skip this commit with "git revert --skip".
+hint: To abort and get back to the state before "git revert",
+hint: run "git revert --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master|REVERTING)
+$ git revert 387b7a40
+error: Reverting is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: revert failed
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master|REVERTING)
+$ git revert --abort
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git revert 387b7a40
+Auto-merging reset_test.txt
+CONFLICT (content): Merge conflict in reset_test.txt
+error: could not revert 387b7a4... thrid commit
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git revert --continue".
+hint: You can instead skip this commit with "git revert --skip".
+hint: To abort and get back to the state before "git revert",
+hint: run "git revert --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master|REVERTING)
+$ git revert abort
+fatal: bad revision 'abort'
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master|REVERTING)
+$ git revert --abort
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git reset --hard 387b7a40
+HEAD is now at 387b7a4 thrid commit
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ ^C
+
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git revert 5102b83a
+CONFLICT (modify/delete): reset_test.txt deleted in parent of 5102b83 (first commit) and modified in HEAD.  Version HEAD of reset_test.txt left in tree.
+error: could not revert 5102b83... first commit
+hint: After resolving the conflicts, mark them with
+hint: "git add/rm <pathspec>", then run
+hint: "git revert --continue".
+hint: You can instead skip this commit with "git revert --skip".
+hint: To abort and get back to the state before "git revert",
+hint: run "git revert --abort".
+hint: Disable this message with "git config set advice.mergeConflict false"
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master|REVERTING)
+$ git revert --abort
+
+ehfkq@junseong MINGW64 ~/Documents/sparta-git (master)
+$ git revert 387b7a40
+[master 2ff0c61] Revert "thrid commit"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
